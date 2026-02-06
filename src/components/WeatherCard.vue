@@ -20,8 +20,8 @@ const props = defineProps<{ weather: WeatherResponse | null }>()
 
 <style scoped>
 .weather-card {
-  background: #f0f8ff; /* светло-голубой */
-  border-radius: 12px;
+  background: #afd1ef;
+  border-radius: 35px;
   padding: 16px;
 }
 </style>

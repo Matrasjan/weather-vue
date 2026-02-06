@@ -29,7 +29,7 @@ onMounted(() => {
 <style>
 .app {
   min-height: 100vh;
-  background: #eaf6ff; /* светло-голубой фон */
+  background: #18527d;
   display: flex;
   flex-direction: column;
   gap: 16px;
