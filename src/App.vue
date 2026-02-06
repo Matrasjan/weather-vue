@@ -28,11 +28,13 @@ onMounted(() => {
 
 <style>
 .app {
-  min-height: 100vh;
-  background: #18527d;
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+  min-height: 100vh;
+  background: #18527d;
+  border-radius: 30px;
+  box-sizing: border-box;
 }
 </style>
