@@ -1,27 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="app">
+    <SearchCity @search="fetchByCity" />
+
+    <WeatherLoader v-if="loading" />
+    <ErrorMessage v-if="error" :message="error" />
+    <WeatherCard v-if="weather" :weather="weather" />
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useWeather } from '@/composables/useWeather'
+import SearchCity from '@/components/SearchCity.vue'
+import WeatherCard from '@/components/WeatherCard.vue'
+import WeatherLoader from '@/components/WeatherLoader.vue'
+import ErrorMessage from '@/components/ErrorMessage.vue'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+const { weather, loading, error, fetchByCity, fetchByCoords } = useWeather()
+
+onMounted(() => {
+  navigator.geolocation.getCurrentPosition(
+      pos => fetchByCoords(pos.coords.latitude, pos.coords.longitude),
+      () => (error.value = 'Геолокация недоступна')
+  )
+})
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style>
+.app {
+  min-height: 100vh;
+  background: #eaf6ff; /* светло-голубой фон */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
 }
 </style>
