@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WeatherCard.vue matches snapshot 1`] = `<!--v-if-->`;
+
+exports[`WeatherCard.vue renders correctly with weather data 1`] = `
+<el-card class="weather-card">
+  <div class="card-content">
+    <div class="left-block">
+      <h2 class="weather-title">Moscow</h2><img src="https://openweathermap.org/img/wn/01d@2x.png" alt="ясно">
+    </div>
+    <div class="right-block">
+      <p class="weather-desc">ясно</p>
+      <p class="degrees">🌡 15 °C</p>
+      <p class="degrees">💧 80 %</p>
+      <p class="degrees">🌬 4 м/с</p>
+    </div>
+  </div>
+</el-card>
+`;
