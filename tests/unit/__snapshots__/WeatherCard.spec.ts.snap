@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherCard.vue matches snapshot 1`] = `<!--v-if-->`;
