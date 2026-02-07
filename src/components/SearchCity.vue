@@ -30,7 +30,13 @@
 
 <script setup lang="ts">
 import {ref} from 'vue'
-import {defineEmits} from 'vue'
+import {defineEmits, defineProps } from 'vue'
+import { Loading } from '@element-plus/icons-vue'
+
+defineProps<{
+  loading?: boolean
+  error?: string
+}>()
 
 const emit = defineEmits<{ (e: 'search', city: string): void }>()
 
