@@ -9,6 +9,11 @@
         class="city-input"
     >
       <template #append>
+        <div v-if="loading" class="loader-wrapper">
+          <el-icon class="loader-icon">
+            <Loading />
+          </el-icon>
+        </div>
         <el-button v-if="loading" icon="Loading" circle></el-button>
         <el-button @click="search" class="search-button">Поиск</el-button>
       </template>
@@ -24,16 +29,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { defineEmits, defineProps } from 'vue'
+import {ref} from 'vue'
+import {defineEmits} from 'vue'
 
 const emit = defineEmits<{ (e: 'search', city: string): void }>()
-const props = defineProps<{ error?: string }>()
 
 const city = ref('')
 
 const search = () => {
-  if (city.value.trim()) emit('search', city.value)
+  const searchValue = city.value.trim()
+  if (searchValue) emit('search', searchValue)
 }
 
 const clearInput = () => {

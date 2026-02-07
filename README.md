@@ -7,12 +7,17 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm serve
+npm run serve
+```
+
+### Jest Tests
+```
+vue-cli-service test:unit
 ```
 
 ### Compiles and minifies for production
 ```
-npm build
+npm run build
 ```
 
 
